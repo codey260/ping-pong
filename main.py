@@ -38,17 +38,17 @@ while running:
   # Players Movement
   keys = pygame.key.get_pressed()
   if keys[pygame.K_w]:
-      paddle_pos.y -= 400 * dt
+      paddle_pos.y -= 660 * dt
   if keys[pygame.K_s]:
-      paddle_pos.y += 400 * dt
+      paddle_pos.y += 660 * dt
 
   if keys[pygame.K_UP]:
-    paddle_pos2.y -= 400 * dt
+    paddle_pos2.y -= 660 * dt
   if keys[pygame.K_DOWN]:
-    paddle_pos2.y += 400 * dt
+    paddle_pos2.y += 660 * dt
 
   # Filling Screen with black
-  screen.fill("black")
+  screen.fill("#1f1f1f")
   # Score Text
   text_surface = font.render(f"Player 1 Score: {paddle_score}", True, "white")
   text_surface2 = font.render(f"Player 2 Score: {paddle_score2}", True, "white")
@@ -66,7 +66,7 @@ while running:
 
   # Rendering Text
   screen.blit(text_surface, (0, 0))
-  screen.blit(text_surface2, (screen.get_width() - 155, 0))
+  screen.blit(text_surface2, (screen.get_width() - 157, 0))
 
   # Drawing Paddles
   pygame.draw.rect(screen, "white", paddle1)
@@ -103,15 +103,18 @@ while running:
   # Colliding with Paddles
   if ball.colliderect(paddle1):
     ball_pos_x = paddle1.right + ball_radius
-    ball_vel_x = abs(ball_vel_x * 1.05)
-    offset = (ball_pos_y - paddle1.centery) / (paddle1.height / 2)
+    ball_vel_x = abs(ball_vel_x)
+    offset = (ball_pos_y - paddle1.y) / (paddle1.height / 2)
     ball_vel_y = offset * 100
 
   if ball.colliderect(paddle2):
     ball_pos_x = paddle2.left - ball_radius
     ball_vel_x = -abs(ball_vel_x)
-    offset = (ball_pos_y - paddle2.centery) / (paddle2.height / 2)
+    offset = (ball_pos_y - paddle2.y) / (paddle2.height / 2)
     ball_vel_y = offset * 300
+
+  # Changing Window Title
+  pygame.display.set_caption("Ping Pong Game (Full of Issues)")
 
   # Rendering Game
   pygame.display.flip()
