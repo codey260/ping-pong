@@ -26,8 +26,8 @@ ball_pos_y = screen.get_height() / 2
 ball_radius = 15
 
 # Ball Velocity
-ball_vel_x = random.randint(0, 400)
-ball_vel_y = random.randint(0, 400)
+ball_vel_x = random.randint(400, 500)
+ball_vel_y = random.randint(400, 500)
 
 # Main Loop
 while running:
@@ -35,13 +35,13 @@ while running:
       if event.type == pygame.QUIT:
           running = False
 
-  # Players Movement    
+  # Players Movement
   keys = pygame.key.get_pressed()
   if keys[pygame.K_w]:
       paddle_pos.y -= 400 * dt
   if keys[pygame.K_s]:
       paddle_pos.y += 400 * dt
-  
+
   if keys[pygame.K_UP]:
     paddle_pos2.y -= 400 * dt
   if keys[pygame.K_DOWN]:
@@ -66,12 +66,12 @@ while running:
 
   # Rendering Text
   screen.blit(text_surface, (0, 0))
-  screen.blit(text_surface2, (screen.get_width() - 150, 0))
+  screen.blit(text_surface2, (screen.get_width() - 155, 0))
 
   # Drawing Paddles
   pygame.draw.rect(screen, "white", paddle1)
   pygame.draw.rect(screen, "white", paddle2)
-  
+
   # Drawing the Ball
   pygame.draw.circle(screen, "white", (ball_pos_x, ball_pos_y), ball_radius)
 
@@ -112,7 +112,7 @@ while running:
     ball_vel_x = -abs(ball_vel_x)
     offset = (ball_pos_y - paddle2.centery) / (paddle2.height / 2)
     ball_vel_y = offset * 300
-  
+
   # Rendering Game
   pygame.display.flip()
   dt = clock.tick(60) / 1000

@@ -1,17 +1,7 @@
 # Ping Pong
 
-**Ping Pong** is a simple educational project built with **Python**.  
-Its main purpose is to **Play a Ping Pong game**  
-This project demonstrates basic CRUD operations for managing students and shows how to integrate traditional Python logic with a GUI.
-
----
-
-## Project Description
-
-- **Name:** Ping Pong
-- **Type:** Python GUI Application & Game Development
-- **Purpose:** Play ping pong game easily through an intuitive GUI.
-- **GUI Integration:** Implemented with `pygame`
+**Ping Pong** is a simple project built with **Python**.  
+Its main purpose is to **Play a Ping Pong game** with **Pygame**
 
 ---
 
@@ -20,7 +10,7 @@ This project demonstrates basic CRUD operations for managing students and shows 
 To run this project, you need:
 
 - **Python 3.7+**
-- Standard Python library only:
+- Python library:
   - `pygame`
 
 ---
